@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Tp7_qtClass</class>
+ <widget class="QMainWindow" name="Tp7_qtClass">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>600</width>
+    <height>400</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Tp7_qt</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <widget class="QPushButton" name="ButtonEmpile">
+    <property name="geometry">
+     <rect>
+      <x>380</x>
+      <y>10</y>
+      <width>80</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Emplie</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="ButtonDepile">
+    <property name="geometry">
+     <rect>
+      <x>380</x>
+      <y>40</y>
+      <width>80</width>
+      <height>24</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Depile</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="infoPile">
+    <property name="geometry">
+     <rect>
+      <x>320</x>
+      <y>70</y>
+      <width>241</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="chiffreEmpile">
+    <property name="geometry">
+     <rect>
+      <x>250</x>
+      <y>10</y>
+      <width>113</width>
+      <height>24</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="ButtonAfficher">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>260</y>
+      <width>91</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Afficher</string>
+    </property>
+   </widget>
+   <widget class="QListView" name="affichagePile">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>60</y>
+      <width>256</width>
+      <height>192</height>
+     </rect>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>600</width>
+     <height>21</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QToolBar" name="mainToolBar">
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources>
+  <include location="Tp7_qt.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>ButtonAfficher</sender>
+   <signal>clicked()</signal>
+   <receiver>Tp7_qtClass</receiver>
+   <slot>OnClickButtonAffiche()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>95</x>
+     <y>308</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>299</x>
+     <y>199</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ButtonDepile</sender>
+   <signal>clicked()</signal>
+   <receiver>Tp7_qtClass</receiver>
+   <slot>OnClickButtonDepile()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>419</x>
+     <y>89</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>299</x>
+     <y>199</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>ButtonEmpile</sender>
+   <signal>clicked()</signal>
+   <receiver>Tp7_qtClass</receiver>
+   <slot>OnClickButtonEmpile()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>419</x>
+     <y>59</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>299</x>
+     <y>199</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>OnClickButtonEmpile()</slot>
+  <slot>OnClickButtonDepile()</slot>
+  <slot>OnClickButtonAffiche()</slot>
+ </slots>
+</ui>
