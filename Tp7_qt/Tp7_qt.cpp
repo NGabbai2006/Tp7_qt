@@ -1,11 +1,10 @@
 #include "Tp7_qt.h"
 #include "qDebug.h"
+#include <QListWidget>
 
-Tp7_qt::Tp7_qt(QWidget *parent)
-    : QMainWindow(parent)
+Tp7_qt::Tp7_qt(QWidget *parent): QMainWindow(parent),pile(20)
 {
     ui.setupUi(this);
-    connect(ui.ButtonAfficher, &QPushButton::clicked, this, &Tp7_qt::OnClickButtonAffiche);
     connect(ui.ButtonEmpile, &QPushButton::clicked, this, &Tp7_qt::OnClickButtonEmpile);
     connect(ui.ButtonDepile, &QPushButton::clicked, this, &Tp7_qt::OnClickButtonDepile);
 }
@@ -14,36 +13,48 @@ Tp7_qt::~Tp7_qt()
 {
 }
 
-void Tp7_qt::OnClickButtonEmpile(pile_entier p) {
+void Tp7_qt::OnClickButtonEmpile() {
     QString msg;
-    if (p.pleine() == 1) {
+    if (pile.pleine() == 1) {
         msg = "votre pile est pleine, impossible d'ajouter un nombre";
         ui.infoPile->setText(msg);
+        return;
     }
     else {
+        bool ok;
         QString chiffre = ui.chiffreEmpile->text();
-        int nb = chiffre.toInt();
-        p.empile(nb);
-        msg = chiffre+" a ete empile";
-        ui.infoPile->setText(msg);
+        if (!chiffre.toInt(&ok)) {
+            msg = "un nombre ou chiffre !! ";
+            ui.infoPile->setText(msg);
+            return;
+        }
+        else {
+            int nb = chiffre.toInt();
+            pile.empile(nb);
+            msg = chiffre + " a ete empile";
+            ui.infoPile->setText(msg);
+            ui.infoHauteur->setText(QString::number(pile.recupHauteur()) + "/20");
+            QListWidgetItem* ligne = new QListWidgetItem(QString::number(pile.recupHauteur()) + "| " + chiffre);
+            ui.ListPile->addItem(ligne);
+        }
     }
 
 }
 
-void Tp7_qt::OnClickButtonDepile(pile_entier p) {
+void Tp7_qt::OnClickButtonDepile() {
     QString msg;
-    qDebug()<< p.vide();
-    if (p.vide() == 1) {
+    if (pile.vide() == 1) {
         msg = "votre pile est vide, impossible de retirer un nombre";
         ui.infoPile->setText(msg);
+        return;
     }
     else {
-        int nb=p.depile();
-        msg = "votre pile a depile : " + nb;
-        ui.infoPile->setText(msg);
-    }
-}
+        int nb = pile.depile();
 
-void Tp7_qt::OnClickButtonAffiche(pile_entier p) {
-    
+        msg = "votre pile a depile : " + QString::number(nb);
+        ui.infoPile->setText(msg);
+        ui.infoHauteur->setText(QString::number(pile.recupHauteur()) + "/"+QString::number(pile.recupTaille()));
+        ui.ListPile->takeItem(pile.recupHauteur());
+    }
+    return;
 }

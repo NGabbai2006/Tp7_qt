@@ -12,11 +12,10 @@ class Tp7_qt : public QMainWindow
 public:
     Tp7_qt(QWidget *parent = nullptr);
     ~Tp7_qt();
-    void OnClickButtonEmpile(pile_entier p);
-    void OnClickButtonDepile(pile_entier p);
-    void OnClickButtonAffiche(pile_entier p);
-
+    void OnClickButtonEmpile();
+    void OnClickButtonDepile();
 private:
     Ui::Tp7_qtClass ui;
+    pile_entier pile;
 };
 

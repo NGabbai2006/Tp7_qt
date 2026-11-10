@@ -46,7 +46,7 @@
       <x>320</x>
       <y>70</y>
       <width>241</width>
-      <height>31</height>
+      <height>71</height>
      </rect>
     </property>
     <property name="text">
@@ -63,23 +63,23 @@
      </rect>
     </property>
    </widget>
-   <widget class="QPushButton" name="ButtonAfficher">
+   <widget class="QLabel" name="infoHauteur">
     <property name="geometry">
      <rect>
-      <x>50</x>
+      <x>260</x>
       <y>260</y>
-      <width>91</width>
+      <width>51</width>
       <height>21</height>
      </rect>
     </property>
     <property name="text">
-     <string>Afficher</string>
+     <string/>
     </property>
    </widget>
-   <widget class="QListView" name="affichagePile">
+   <widget class="QListWidget" name="ListPile">
     <property name="geometry">
      <rect>
-      <x>50</x>
+      <x>60</x>
       <y>60</y>
       <width>256</width>
       <height>192</height>
@@ -112,22 +112,6 @@
   <include location="Tp7_qt.qrc"/>
  </resources>
  <connections>
-  <connection>
-   <sender>ButtonAfficher</sender>
-   <signal>clicked()</signal>
-   <receiver>Tp7_qtClass</receiver>
-   <slot>OnClickButtonAffiche()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>95</x>
-     <y>308</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>299</x>
-     <y>199</y>
-    </hint>
-   </hints>
-  </connection>
   <connection>
    <sender>ButtonDepile</sender>
    <signal>clicked()</signal>
