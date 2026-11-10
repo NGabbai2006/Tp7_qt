@@ -2,11 +2,15 @@
 #include "qDebug.h"
 #include <QListWidget>
 
-Tp7_qt::Tp7_qt(QWidget *parent): QMainWindow(parent),pile(20)
+const int taille = 20;
+
+Tp7_qt::Tp7_qt(QWidget *parent): QMainWindow(parent),pile(taille)
 {
     ui.setupUi(this);
     connect(ui.ButtonEmpile, &QPushButton::clicked, this, &Tp7_qt::OnClickButtonEmpile);
     connect(ui.ButtonDepile, &QPushButton::clicked, this, &Tp7_qt::OnClickButtonDepile);
+    hauteur = 0;
+    t = taille;
 }
 
 Tp7_qt::~Tp7_qt()
@@ -31,11 +35,13 @@ void Tp7_qt::OnClickButtonEmpile() {
         else {
             int nb = chiffre.toInt();
             pile.empile(nb);
+            hauteur++;
             msg = chiffre + " a ete empile";
             ui.infoPile->setText(msg);
-            ui.infoHauteur->setText(QString::number(pile.recupHauteur()) + "/20");
-            QListWidgetItem* ligne = new QListWidgetItem(QString::number(pile.recupHauteur()) + "| " + chiffre);
+            ui.infoHauteur->setText(QString::number(hauteur) + "/"+QString::number(t));
+            QListWidgetItem* ligne = new QListWidgetItem(QString::number(hauteur) + "| " + chiffre);
             ui.ListPile->addItem(ligne);
+            
         }
     }
 
@@ -53,8 +59,9 @@ void Tp7_qt::OnClickButtonDepile() {
 
         msg = "votre pile a depile : " + QString::number(nb);
         ui.infoPile->setText(msg);
-        ui.infoHauteur->setText(QString::number(pile.recupHauteur()) + "/"+QString::number(pile.recupTaille()));
-        ui.ListPile->takeItem(pile.recupHauteur());
+        ui.infoHauteur->setText(QString::number(hauteur) + "/"+QString::number(t));
+        ui.ListPile->takeItem(hauteur);
+        hauteur--;
     }
     return;
 }

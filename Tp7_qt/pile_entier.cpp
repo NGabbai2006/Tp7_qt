@@ -51,10 +51,3 @@ int pile_entier::vide() {
 		return 0;
 	}
 }// retourne 1 si la pile est vide, 0 sinon
-
-int pile_entier::recupHauteur() {
-	return hauteur;
-}
-int pile_entier::recupTaille() {
-	return taille;
-}

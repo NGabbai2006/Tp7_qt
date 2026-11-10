@@ -17,5 +17,7 @@ public:
 private:
     Ui::Tp7_qtClass ui;
     pile_entier pile;
+    int hauteur;
+    int t;
 };
 

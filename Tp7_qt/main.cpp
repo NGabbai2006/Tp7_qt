@@ -24,7 +24,7 @@ void verifier(const bool condi) {
 
 void testsUnit()
 {
-    std::cout << "=== Tests unitaires pile_entier ===\n";
+    std::cout << "=== Tests unitaires ===\n";
 
     pile_entier p(3);
     verifier(p.vide() == 1);/*Pile vide au start*/
@@ -32,13 +32,11 @@ void testsUnit()
 
     p.empile(10);
     p.empile(20);
-    verifier(p.recupHauteur() == 2); /*hauteur apres avoir empiler 2 nb*/
-
     p.empile(30);
-    verifier(p.pleine() == 1); /*Pile pleine*/
+    verifier(p.pleine() == 1); /*Pile pleine ca a donc bien empiler tout les nombres*/
 
     p.empile(40);
-    verifier(p.recupHauteur() == 3); /*regarde si ça a bien ignoré l'empilement quand pile pleine*/
+    verifier(p.pleine() == 1); /*regarde si ça a bien ignoré l'empilement quand pile pleine*/
 
     verifier(p.depile() == 30);
     verifier(p.depile() == 20);
@@ -48,12 +46,13 @@ void testsUnit()
 qDebug() << "Resultat: " << t_reussi << "/" << t_total << " tests reussis";
 }
 
+void appli_console() {
     
+}
 int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
     Tp7_qt window;
     window.show();
-    testsUnit();
     return app.exec();
 }

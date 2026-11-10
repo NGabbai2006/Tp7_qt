@@ -10,6 +10,4 @@ public:
     int depile(); // retourne la valeur de l’entier inséré en dernier, la hauteur diminue de 1 unité
     int pleine(); // retourne 1 si la pile est pleine, 0 sinon
     int vide();   // retourne 1 si la pile est vide, 0 sinon
-    int recupHauteur();
-    int recupTaille();
 };
