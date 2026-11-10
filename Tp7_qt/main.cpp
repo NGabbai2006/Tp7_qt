@@ -38,7 +38,7 @@ void testsUnit()
     verifier(p.pleine() == 1); /*Pile pleine*/
 
     p.empile(40);
-    verifier(p.pleine() == 3); /*regarde si ça a bien ignoré l'empilement quand pile pleine*/
+    verifier(p.recupHauteur() == 3); /*regarde si ça a bien ignoré l'empilement quand pile pleine*/
 
     verifier(p.depile() == 30);
     verifier(p.depile() == 20);
@@ -51,9 +51,9 @@ qDebug() << "Resultat: " << t_reussi << "/" << t_total << " tests reussis";
     
 int main(int argc, char *argv[])
 {
-    testsUnit();
     QApplication app(argc, argv);
     Tp7_qt window;
     window.show();
+    testsUnit();
     return app.exec();
 }
