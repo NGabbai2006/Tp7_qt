@@ -56,12 +56,12 @@ void Tp7_qt::OnClickButtonDepile() {
     }
     else {
         int nb = pile.depile();
-
+        hauteur--;
         msg = "votre pile a depile : " + QString::number(nb);
         ui.infoPile->setText(msg);
         ui.infoHauteur->setText(QString::number(hauteur) + "/"+QString::number(t));
         ui.ListPile->takeItem(hauteur);
-        hauteur--;
+        
     }
     return;
 }
